@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ระบบค้นหา Line Group รายวิชา</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="site-header">
+        <img class="brand-logo" src="assets/spu-sla-logo.png" alt="SPU School of Liberal Arts" />
+        <div class="title-block">
+          <p class="eyebrow">SPU School of Liberal Arts</p>
+          <h1>ระบบค้นหา Line Group รายวิชา</h1>
+        </div>
+      </header>
+
+      <section class="notice" aria-label="ประกาศ">
+        <span class="notice-label">ประกาศ</span>
+        <p>ใส่รหัสวิชาและกลุ่มเรียนที่ลงทะเบียนเพื่อเข้าไลน์กลุ่มเรียน</p>
+      </section>
+
+      <section class="search-panel" aria-label="ค้นหารายวิชา">
+        <label class="field">
+          <span>ภาคเรียน / Term</span>
+          <select id="termFilter"></select>
+        </label>
+
+        <label class="field">
+          <span>รหัสวิชา / Course Code</span>
+          <input id="courseSearch" type="search" placeholder="เช่น GEN101" autocomplete="off" />
+        </label>
+
+        <label class="field">
+          <span>กลุ่มเรียน / Section</span>
+          <input id="sectionSearch" type="search" placeholder="เช่น 01" autocomplete="off" />
+        </label>
+
+        <button id="resetButton" class="reset-button" type="button">ล้างการค้นหา</button>
+      </section>
+
+      <section class="result-summary" aria-live="polite">
+        <p id="dataStatus" class="data-status"></p>
+        <p id="resultCount"></p>
+      </section>
+
+      <section id="cardsGrid" class="cards-grid" aria-label="รายการ Line Group"></section>
+    </main>
+
+    <template id="cardTemplate">
+      <article class="course-card">
+        <div class="card-main">
+          <div>
+            <p class="term-pill"></p>
+            <h2 class="course-code"></h2>
+            <p class="section"></p>
+            <p class="teacher"></p>
+          </div>
+          <div class="qr-wrap">
+            <img class="qr-image" alt="" />
+          </div>
+        </div>
+        <a class="line-link" target="_blank" rel="noreferrer">เปิด Line Group</a>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
